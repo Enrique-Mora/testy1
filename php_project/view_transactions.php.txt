@@ -1,0 +1,36 @@
+<?php
+require_once 'functions.php';
+$transactions = getTransactions();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Transacciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Transacciones</h1>
+    <a href="index.php">Volver</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($transactions as $transaction): ?>
+                <tr>
+                    <td><?php echo $transaction['date']; ?></td>
+                    <td><?php echo ucfirst($transaction['type']); ?></td>
+                    <td><?php echo number_format($transaction['amount'], 2); ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?php
+class Database {
+    private $db;
+
+    public function __construct($db_file = 'finance_manager.db') {
+        $this->db = new PDO("sqlite:$db_file");
+        $this->initialize();
+    }
+
+    private function initialize() {
+        $this->db->exec("CREATE TABLE IF NOT EXISTS transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            type TEXT NOT NULL,
+            amount REAL NOT NULL,
+            date TEXT NOT NULL
+        )");
+    }
+
+    public function getDb() {
+        return $this->db;
+    }
+}
+?>

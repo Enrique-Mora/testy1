@@ -1,0 +1,13 @@
+<?php
+require_once 'functions.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $type = $_POST['type'];
+    $amount = $_POST['amount'];
+
+    addTransaction($type, $amount);
+}
+
+header('Location: index.php');
+exit;
+?>

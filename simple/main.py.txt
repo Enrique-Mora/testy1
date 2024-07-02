@@ -1,0 +1,11 @@
+
+### Contenido de `main.py`
+```python
+from utils import saludar
+
+def main():
+    nombre = input("¿Cuál es tu nombre? ")
+    saludar(nombre)
+
+if __name__ == "__main__":
+    main()
